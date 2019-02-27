@@ -19,3 +19,5 @@ là mình chuyển sang nhánh mới luôn).
 + git merge là dùng để add các đoạn code, file code từ nhánh A SANG nhánh B, nếu muốn vậy trc hết phải đang ở nhánh B, sau
 đó gõ git merge A.
 + git branch -D namebrach dùng để xóa nhánh.
+
+aaaaaaaa
