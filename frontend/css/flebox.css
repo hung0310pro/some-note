@@ -1,0 +1,67 @@
+/* flex-direction: column | row 
+justify-content: center(cả cụm ra giữa)|flex-end(cả cụm về cuối bên phải)|flex-start(cả cụm ở đầu dòng)
+|space-between(cả cụm cách đều)|space-around(cả cụm cách đều cả ngoài lề nhưng trong lớn hơn ngoài x2
+)| space-evenly(cả cụm cách đều khoảng cách bằng nhau);
+
+align-items: center|baseline|stretch(để cho các div con có chiều cao bằng vs tk div cha)
+|flex-end|flex-start (cái này thì nó vuông góc vs cái tk 
+flex-direction: row nếu là ngang thì nó sẽ đi dọc, và ngược lại)
+
+muốn lên xuống các kiểu điều chỉnh justify-content và align-items, ví dụ muốn góc dưới cùng bên trái
+của div cha thì justify-content:space-between flex-end;align-items: flex-end;
+
+flex-basis: length; bài 21 chọn độ rộng cho mỗi class con nhưng đôi khi nó k đc như ý muốn
+trong trường hợp nội dung trong div quá dài, hoặc là tổng 3 div con lớn hơn div cha
+
+flex-grow: 0* | number; dùng đc khi tổng 3 div con nhỏ hơn div cha, như ở dưới đang chia cái phần
+còn lại của div cha ra làm 4 phần (1366px;) thì tk thứ 1 đc 1/4, tk 2 đc 1/2 tk cuối 1/4.
+Nếu muốn cho hết 1 cái thì cho 1 cái flex-grow: 1, còn 2 cái còn lại k ghi gì.
+
+flex-shrink bài 23
+
+order : 0 | number; sắp xếp 1 trong 3 tk div kia, nếu mặc định là 0 thì không thay đổi còn nếu số càng 
+lớn thì càng bị xếp về phía cuối.
+*/
+
+/* position:absolute; là nó căn chỉnh theo cái tk div cha mà có position:relative gần nhất như cái 
+hình image absolute kia*/
+
+body{
+	margin: 0px;
+}
+
+.container{
+	display: flex; /* để dùng flex thì bắt đầu để cái này */
+	flex-direction: row; /* đưa về 1 hàng */
+	justify-content:flex-start;
+	height: 250px;
+	align-items: baseline;
+	background: #DDD;
+}
+
+.child-1{
+	background-color: red;
+	flex-basis: 150px;
+	flex-grow:1
+	
+}
+
+.child-2{
+	background-color: green;
+	flex-basis: 200px;
+	flex-grow:2
+}
+
+.child-3{
+	background-color: blue;
+	flex-basis: 100px;
+	flex-grow: 1
+}
+
+.container1-swap .child-1{
+	order:2;
+}
+
+.container1-swap .child-3{
+	order:1;
+}

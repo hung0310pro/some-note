@@ -1,0 +1,49 @@
+/*body{
+			background: rgba(248, 212, 83, 1.0);
+background: -webkit-linear-gradient(top left, rgba(248, 212, 83, 1.0), rgba(255, 93, 91, 1.0));
+background: -moz-linear-gradient(top left, rgba(248, 212, 83, 1.0), rgba(255, 93, 91, 1.0));
+background: linear-gradient(top left, rgba(248, 212, 83, 1.0), rgba(255, 93, 91, 1.0));
+		}*/
+
+		.div1-div11{
+			background-color:green;
+			height: 200px;
+		}
+
+		.div11-div111-aaa{
+			background-image: url('anh.jpg');
+			height: 200px;
+			background-size: cover;
+			background-position: 0 300px; /* kéo ảnh lên trên background-position: x y || center;*/ 
+			/*background-size: contain; là để nó nhỏ lại xong lặp nhiều lần*/
+			background-attachment: fixed; /* giữ cố định phần trong ảnh dù kéo thanh cuộn */
+		}
+		a{
+			color: white;
+		}
+
+		.block{
+			display: block; /*thuộc tính này cho nó nguyên 1 dòng như thẻ p, đối vs thẻ p mà k muốn
+			cho xuống dòng thì dùng  display: inline*/
+		} 
+        
+    /*trong cái thẻ chữ nào có display là block thì chỉnh đc độ rộng, chiều cao, và margin,padding bt
+        còn cái tk nào mà là inline thì chỉ có padding, còn margin chỉ đc ở trên thôi;*/
+
+
+/* Phần ul li */
+
+.list-1 .item-2{
+	color: red;
+}
+
+.list-1 > .item{
+	border: 1px solid black; /*Chỉ những cái tk con trực tiếp của nó ms đc cái border này */
+}
+
+.list-1 .item-2 + .item{
+	color: blue; /*tìm dòng trong class list-1, xong tới item-2 rồi tìm tk tiếp theo của tk item2-2
+	thì chính là tk item item-3*/
+}
+/* .list-1 .item-1 ~ .item * tìm dòng trong class list-1, xong tới item-1 rồi tìm tk tất cả tk anh em
+của cái item-1 sẽ là item item-2 và item item-3 */

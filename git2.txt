@@ -1,0 +1,21 @@
+﻿+ khi muốn khởi tạo dùng git cho 1 project mới thì phải vào cái folder đó và gõ git init.
++ khi muốn check xem có file mới, hay có thay đổi gì so vs code cũ thì check bằng git status.
++ git add . là khi thêm mấy cái file mình ms tự thêm vào.(nếu chỉ muốn thêm 1 vài file thôi thì gõ git add và liệt kê
+tên 1 vài file muốn add ngay đằng sau)
++ git commit -m"giải thích", cái này dùng để nó đóng gói tất cả những cái mình vừa thay đổi rồi add lên vào 1 cái obj
+kèm vs lời giải thích, (coi như là lưu lịch sử thay đổi, và code cái lúc thay đổi đó).
++ git log là để xem lịch sử những cái git commit nào đã đc tạo.
++ git show cộng với cái id của cái commit sau khi mình ấn git log là để xem lại mình đã thay đổi những,hay thêm những gì
+trong cái lần commit đó.
++ git diff là xem sự thay đổi của các file(sau khi gõ git show).
++ git chekout dùng khi mình muốn bỏ đi những cái code mình ms thêm gần đây nhất(giống như Ctrl + z), chỉ dùng khi chưa add
+lên git.
++ git reset ngược lại vs git add ., sau khi add rồi mà k muốn add nữa thì ấn git reset + vs tên file, cấu trúc là:
+git reset namefile.
++ git checkout -b namebranch cái này để tạo ra 1 nhánh mới, nếu trùng tên nhánh so vs nhánh cũ sẽ báo lỗi(checkout nt cx
+là mình chuyển sang nhánh mới luôn).
++ git branch là để xem mình đang ở nhánh nào.
++ git checkout namebranch là chuyển nhánh.
++ git merge là dùng để add các đoạn code, file code từ nhánh A SANG nhánh B, nếu muốn vậy trc hết phải đang ở nhánh B, sau
+đó gõ git merge A.
++ git branch -D namebrach dùng để xóa nhánh.

@@ -1,0 +1,4 @@
+﻿+ css gradiend generation,https://cssgradient.io/ ra được cái trang xem cả đống màu.
++ fonts google.com ra đc cái trang chọn font cho chữ.
++ text-indent: lùi vào bn px cho dòng đầu
++ https://placeholder.com/ link ảnh
