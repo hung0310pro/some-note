@@ -19,5 +19,5 @@ là mình chuyển sang nhánh mới luôn).
 + git merge là dùng để add các đoạn code, file code từ nhánh A SANG nhánh B, nếu muốn vậy trc hết phải đang ở nhánh B, sau
 đó gõ git merge A.
 + git branch -D namebrach dùng để xóa nhánh.
++ git pull là khi 1 ng vừa push lên xong mình (đã git clone rồi) mà muốn tiếp tục theo dõi tại thời điểm đó thì gõ git pull
 
-aaaaaaaa
