@@ -1,0 +1,4 @@
+﻿+ Để chuyển Store Danish về dạng grid only thì 
+- Chọn Store-configuration->Catalogs->Catalogs->Storefront->List Mode (Ở Trên chỗ cùng vs Save Config có chỗ chọn store 
+view).
+- Mấy cái giá trị cho 1 trang, rồi cho hết sản phẩm vào 1 trang thì cx ở ngay trong cái Storefront

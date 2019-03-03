@@ -1,0 +1,13 @@
+﻿+ tạo category
+- Products->category->add subcategory
+- Hiện ra 1 list cái điền tên category, sau đó mình chọn content để upload hay miêu tả nội dùng.
+- Sau đó chọn search engine... nhập cái url key (ví dụ name là Sách thì url key là sach) (cái này có thể hiểu là tìm kiếm)
+- Muốn tạo thêm các menu con của tk Sách thì ấn vào cái folder Sách rồi sau đó ấn add subcategory... là đc
+
++ muốn tạo sản phẩm cho category thì chọn Products->catalog->add product
+- Thông thường sẽ chọn simple product
+- Sau đó hiển thị ra 1 bảng thì điền bt. SKU là mã của sản phẩm.
+- Category thì chọn sách hoặc chọn vài cái khác thì tùy.
+- Sau đó chọn Content để giới thiệu về sách.
+- Sau đó chọn Image and Video là chọn ảnh lên.
+- Sau đó chọn search engine để chọn tên seach cho sách, nên đặt là (bi-mat-cua-cs).

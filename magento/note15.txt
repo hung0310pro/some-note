@@ -1,0 +1,7 @@
+﻿+ Cách tạo thuế.
+- Store->Tax Rules->Add new tax rule.
+- trong Tax Rule Information chọn Add new tab rate.
+
++ Mấy cái ở dưới thì làm như sau
+Vào Store->Configuration->kéo xuống chọn Sales->tax.
+- Tìm Price Display Settings, Shopping Cart Display Settings là xong.

@@ -1,0 +1,3 @@
+﻿+ Vào Marketing->Cart Price Rules->Add New Rules
+- Sau đó chọn mấy chỗ condition, rồi Action(có freeship) ấy.
+- Sau đó vào cái Manage Coupon Codes  để tạo ra mã giảm giá.

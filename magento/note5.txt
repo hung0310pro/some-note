@@ -1,0 +1,9 @@
+﻿+ Muốn làm cái thứ 5.
++ Tạo 1 block.
+- Content->block->add new block.
+- Store View chọn all store view, sau đó điền nội dung rồi chọn hình ảnh ở cái Show ở dưới.
+
++ Vào Catalog->Categories->Chọn thư mục Sale
+- Sau đó chọn content->Add CMS Block->Tên block của mình
+- Display Settings->Display Mode-> chọn theo yêu cầu.
+- Design->Layout->chọn theo yêu cầu.bar là cái phần chọn. nếu chọn 1 layout 

@@ -1,0 +1,4 @@
+﻿+ widgets là đóng gói các block lại để rồi đưa ra các page.
++ Content->Widgets->Add Widget
++ Cái layout updates là thêm vào các layout thôi.
++ Sau đó vào page cài đặt rồi trong cái nội dung thì chọn cái Widget vào.

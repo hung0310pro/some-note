@@ -1,0 +1,4 @@
+﻿+ Store->Configuration->sales->shipping setting.
++ Cái thứ 2 vào shipping method, rồi chọn main website ở chỗ storeview thì export file excel vào
+
++ cái 18 thì ở dưới luôn, chọn payment method->PayPal Express Checkout(ngay trên đầu)

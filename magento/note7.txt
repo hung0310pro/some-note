@@ -1,0 +1,2 @@
+﻿+ Tạo 3 block bt.
+- Xong sau đó vào page rồi vào chỗ content chọn insert-widget(icon hình như cái rubic)

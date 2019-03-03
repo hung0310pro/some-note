@@ -1,0 +1,3 @@
+﻿+ cái store view mục đích là chọn ngôn ngữ cho trang web.
++ store->all store
++ Chọn create store view->Name như bt->Code -> chữ thường của name, status-> enabled.

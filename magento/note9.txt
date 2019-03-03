@@ -1,0 +1,2 @@
+﻿+ Cách tạo ra 3 tài khoản của group
+- Customer->All customer->Add new customer

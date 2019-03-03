@@ -1,0 +1,5 @@
+﻿+ Phần 6 
+- Content->pages->Add new page;
+- Có page titile, content.
+- Search Engine Optimization  có url key.
+- Page in Websites Chọn ngôn ngữ tương vs page ví dụ En Abougt Us thì chọn tiếng anh(Phần store view)

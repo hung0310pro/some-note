@@ -1,0 +1,15 @@
+﻿+ Để tạo atribute
+- Store->product->Add new attribute. (1)
+- Phần Catalog Input Type for Store Owner chọn (tùy loại)
+xong sau đó thêm các sự lựa chọn về màu như màu đỏ, đen.
+- Phần Advanced Attribute Properties->scope phải chọn global. -> save là xong.
+
++ sau đó vào catalog->product->Chỗ add product chọn Configurable product.
+- rồi chỗ Configurations chọn Create Configurations.
+
++ cái atribute set là để làm riêng những thuộc tính cho LOẠI sản phẩm, ví dụ như là Sách thì có số trang,tác giả.
+còn Thời trang thì có màu,size... (Giả sử đặt: thời trang)
+- cách tạo attribute set vào Store->Attribute set->Add attribute set, những cái mục màu đỏ là bắt buộc,Ấn add new
+ rồi tạo ra.
+- Các thuộc tính của nó thì vào cái (1)(gs tạo 2 cái màu, và size) xong sau khi làm xong thì lại vào lại cái Attribu set để chọn các cái từ (1) cho
+nó tương ứng thì lấy attribute màu,attribute size.

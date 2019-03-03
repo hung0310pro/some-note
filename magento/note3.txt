@@ -1,0 +1,9 @@
+﻿+ Cài đặt tiền tệ cho cửa hàng.
+- Bước 1 chọn store->Configuration->Currency Setup->Allowed Currencies(euro,danis).
+- Sau đó hiện ra 1 bảng chọn loại tiền mặt phù hợp
+(Dolar,Dolar,(các nước con như trong cái bảng excel là euro,danis))
+- sau đó chọn Catalog->catalog->price để là gì thì tùy
+
++(import rate) sau đó phải chỉnh % tiền tệ tương ứng như là 1 đô thì bằng 10 euro
+- store->currency rate
+
