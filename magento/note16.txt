@@ -1,0 +1,6 @@
+﻿+ Tạo template email
+- Marketting->Email template->Add New Template.
+- Cái Load default template là nó có mấy cái mình cần lựa chọn như  trong file excel.
+- Template Content là cần lấy ra những cái cần hiển thị cho khách hàng sau khi khách hàng order.
++ Cách tạo template
+- Store->Configutation->sales->sales emails->Order-> chỉnh ở cái chỗ New Order Confirmation Template. 
