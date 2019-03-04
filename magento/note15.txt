@@ -1,6 +1,7 @@
 ﻿+ Cách tạo thuế.
-- Store->Tax Rules->Add new tax rule.
-- trong Tax Rule Information chọn Add new tab rate.
+- Trc hết vào store->Tax zones and rates. tạo ra rồi chèn phần trăm thuế vào.
+- Sau đó vào Store->Tax Rules->Add new tax rule.
+- trong Tax Rule Information chọn Add new tab rate rồi chọn các loại thuế vừa đc tạo ở trên tương ứng vào.
 
 + Mấy cái ở dưới thì làm như sau
 Vào Store->Configuration->kéo xuống chọn Sales->tax.
