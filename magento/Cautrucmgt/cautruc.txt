@@ -29,7 +29,7 @@ frontName nào có tên là customer.
 
 + Giải thích cách xử lý qua cái đường link <base_url>/<area>/<front name>/<controller name>/<action>
 - Thì nó sẽ dựa vào cái <area> và <front name> tìm ra cái Route cần xong Route đó ta tìm đc module tương ứng-> rồi từ
-module tìm ra được Controller và Action tương ứng.
+module tìm ra được Controller và Action tương ứng(có <controller name>/<action> ).
 
 - Tiếp đến Từ Action thì sẽ tìm đc ra view rồi layout và template Và khối BLOCK(chứa các dữ liệu của Model trả về view).  
  

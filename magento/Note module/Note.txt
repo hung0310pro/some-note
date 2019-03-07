@@ -1,0 +1,11 @@
+﻿+ Cái registration là để khai báo và nhận biết sự tồn tại của 1 module.
++ <module name="AHT_Blog" setup_version="1.0.0"> có nghĩa là AHT là tên vendor, Blog là tên module, và còn cái version
+là cái đoạn mình viết đầu tiên nên viết 1.0.0.
+
++ Tên controller ứng vs các thư mục nằm trong controller và bên trong có 1 file và action tương ứng vs tên thư mục nằm trong
+controller đó. Ví dụ Controller/Index/Index.php(Class Index, và có action Excuse()).
+
++ Muốn thể hiện view ra ngoài thì trong etc tạo folder frontend thì trong đấy có cái Routes tương ứng vs frontend(frontend
+chính là : http://localhost/magento2). Trong cái Routes thì sửa cái frontName,id. Riêng Namemodule tương ứng vs module.
+
+

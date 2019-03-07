@@ -1,0 +1,4 @@
+﻿+ http://localhost/magento2/blog/index/index
+- Tên module/tên controller/ action.
+- Sau khi chạy thì nó thực hiện chạy cả controller và sẽ thực thì Hàm excuse() trong controller, còn 1 số cái khác thì nó
+ở trong ảnh.
