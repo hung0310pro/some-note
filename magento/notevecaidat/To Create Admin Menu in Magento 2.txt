@@ -1,0 +1,29 @@
+﻿Trong app/code/AHT/Blog/etc/adminhtml/menu.xml
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="AHT_Blog::blog" title="Blog" module="AHT_Blog" sortOrder="10" resource="AHT_Blog::blog"/> // tk bố Blog
+và 2 tk con ở dưới
+        <add id="AHT_Blog::post" title="Manage Posts" module="AHT_Blog" sortOrder="10" action="blog/post" resource="AHT_Blog::post" parent="AHT_Blog::blog"/>
+        <add id="AHT_Blog::blog_configuration" title="Configuration" module="AHT_Blog" sortOrder="99" parent="AHT_Blog::blog" 
+	action="adminhtml/system_config/edit/section/blog" resource="AHT_Blog::blog_configuration"/>
+    </menu>
+</config>
+
++ Chúng ta sẽ tạo ra 1 menu cấp 0 vs tên là  Blog và 2 menu con của tk Blog này lần lượt là Manage và Configuration. cái file menu.xml sẽ 
+chứa và xác định ra cái menu này và thêm nó vào mục menu Admin của magento.
+
++ Cái đoạn <add id="AHT_Blog::post" title="Manage Posts" module="AHT_Blog" sortOrder="10" action="AHT_Blog/post"
+ resource="AHT_Blog::post" parent="AHT_Blog::blog"/>
+
+- Cái id là thuộc tính của tài nguyên này và được định dạng dưới dạng : {Vendor_ModuleName}::{menu_description}. 
+- Cái title thì là tên cái menu đó và sẽ xuất hiện trên menubar.
+- Thuộc tính module được định nghĩa module mà menu này thuộc về.
+- sortOrder thể hiện vị trí của menu cái nào có giá trị thấp hơn thì sẽ đc hiển thị trên đầu của menu.
+- Thuộc parent là Id của nút menu khác. Nó sẽ nói với Magento rằng menu này là con của một menu khác, ví dụ như là ta có parent=”AHT_Blog::blog”, do đó ta
+có thể biết là cái tk Manage Posts sẽ là con của tk Blog menu và sẽ được hiện ra trong cái tk Blog menu.
+- Thuộc tính Action sẽ xác định url của trang mà menu này liên kết đến. Như chúng ta đã nói ở trên, url sẽ được theo định dạng
+ này {router_name} {control_folder} {action_name}. - Trong ví dụ này, menu này sẽ liên kết với module Blog,controller post và Action là
+index.
+- Thuộc tính resource được sử dụng để xác định quy tắc ACL mà người dùng quản trị viên phải có để xem và truy cập menu này. 
+

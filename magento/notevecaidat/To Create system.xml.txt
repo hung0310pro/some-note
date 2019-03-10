@@ -1,0 +1,88 @@
+﻿+ app/code/AHT/Blog/etc/adminhtml/system.xml
+
+// cái tab này đc tạo trong store->configuration.
+
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="aht" translate="label" sortOrder="10">
+            <label>AHT</label> // + tạo ra cái tab là AHT như trong hình
+        </tab>
+        // section ở dưới này là các cái thành phần chính là cái Blog ở  trong cái tab AHT
+        <section id="blog" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Blog</label>
+            <tab>aht</tab>
+            <resource>AHT_Blog::blog_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label> // Tiêu đề của chỗ chọn 2 ô field
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="display_text" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Text</label> // Tên của cột
+                    <comment>This text will display on the frontend.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
+
++ Check code để hiểu làm thế nào để tạo ra Tab, Section, Group và Field.
+
++ Phần tử tab có nhiều sections và 1 vài thuộc tính chính và con:
+- id, và sortOrder nói ở 2 cái đầu kia.
+- Thuộc tính Translate để Magento biết cái title nào cần dịch.
+- Label dùng để show ra như là tab title.
+
++ Cái Section cx có mấy cái id, sortOrder, translate giống như Tab. nhưng nó có 1 số thuộc tính riêng biệt(showInDefault, showInWebsite, showInStore)
+sẽ quyết định nó sẽ show ra trong phạm vi nào hoặc không.
+
++ The section may have many group and some other child elements:
+- Class : Giá trị này sẽ thêm như là 1 đối tượng cho thành phần này,bạn nên làm điều đó nếu bạn muốn làm nên cái thành phần này.
+- Label
+- Tab : Đây là 1 tab id, thành phần tab này sẽ cho magento biết thành phần của tab thuộc về(chính là Section).
+- Resource: định nghĩa quy tắc ACL mà admin có thể truy cập cái configuration.
+- Group: This element may have many field and some attributes which is same as Sections.
+- Fields: là 1 trong những thành phần chính của page. trong thành phần này chúng ta sẽ quan tâm tới thuộc tính type, nó sẽ định nghĩa làm
+thế nào hiển thị các element. Type Nó có thể là dạng text, select,file... trong ví dụ này thì mình tạo 2 fields vs type lầ select và text.
+Với mỗi type chúng ta sẽ định nghĩa các thành phần con của nó để phục việc công việc chúng ta muốn.
+
++ Tạo ra app/code/AHT/Blog/etc/config.xml
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <blog>
+            <general>
+                <enabled>1</enabled> + cái dòng này là giá trị mặc định cho tk ô select.
+                <display_text>AHT Blog Module Text</display_text>  cài dòng này là cài giá trị mặc định cho tk display_text
+            </general>
+        </Blog>
+    </default>
+</config>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
