@@ -1,0 +1,18 @@
+﻿+ Layout
+- Các Containers chỉ định nội dung cấu trúc tới 1 page và sử dụng container tags với trong 1 layout XML. 1 container không bổ sung nội dung ngoại trừ
+những nội dung đi kèm, ví dụ như là header, left column, main column...
+- Blocks liên kết các thành phần UI trên 1 trang bằng cách sử dụng các thẻ block trong tệp layout XML file, blocks sử dụng các template của HTML để
+ thêm vào các phần cha của block, Examples of blocks include a category list, a mini cart, product tags, and product listing.
+
++ Layout handles cs 3 loại.
+- page-type layout handles : từ đồng nghĩa của loại page định danh, trao đổi dữ liệu tới "full action names" của 1 controller actions,
+ví dụ catalog_product_view.
+
++ Layout file types: by role
+- Cho 1 page cụ thể bố cục của nó được xác định bởi hai thành phần bố trí chính: page layout file and page configuration file.
+- Page layout, Page configuration, Generic layout.
+
+
++ Block : 1 block là một đơn vị đầu ra trang hiển thị một số nội dung đặc biệt, chẳng hạn như một phần thông tin hoặc thành phần giao diện người dùng.
+- Block sử dụng các mẫu để tạo HTML. Ví dụ về các khối bao gồm danh sách danh mục, giỏ hàng nhỏ, thẻ sản phẩm và danh sách sản phẩm.
+

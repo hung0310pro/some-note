@@ -1,0 +1,152 @@
+﻿+ There are two possible ways to customize page layout in Magento:
+- Changing layout files
+- Altering templates
+
++ Các layout instructions phổ biến.
+- <block>
+- <container>
+- before and after attributes
+- <action>
+- <referenceBlock> and <referenceContainer>
+- <move>
+- <remove>
+- <update>
+- <argument>
+
++ block
+- Khối là một đơn thành phần đặc biệt của trang, chẳng hạn như 1 phần thông tin hoặc thành phần giao diện ng dùng.
+- block sử dụng các mẫu template để tạo HTML, Examples of blocks include a category list, a mini cart, product tags, and product listing.
+- Nên Thêm tên vào khối và nó được đặt 1 cách ngẫu nhiên.
+-  <block class="Magento\Theme\Block\Html\Header" name="header" as="header" before="-">
+                <arguments>
+                    <argument name="show_part" xsi:type="string">welcome</argument>
+                </arguments>
+            </block>
+ <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.description" as="description" template="Magento_Catalog::product/view/attribute.phtml" group="detailed_info">
+                    <arguments>
+                        <argument name="at_call" xsi:type="string">getDescription</argument>
+                        <argument name="at_code" xsi:type="string">description</argument>
+                        <argument name="css_class" xsi:type="string">description</argument>
+                        <argument name="at_label" xsi:type="string">none</argument>
+                        <argument name="title" translate="true" xsi:type="string">Details</argument>
+                    </arguments>
+                </block>
+- class : Tên của 1 class rendering tới 1 block cụ thể, đối tượng của lớp này sẽ thực hiện đầu ra của khối.
+- name :cái tên nó có thể được hiểu như 1 địa chỉ ,để sau này mình dùng nó để gọi lại cái block hay container, có thể không khai báo name
+nếu không khai báo thì magento nó cũng tự tạo ra 1 cái name cho nó với định dạng kia.
+- before : được sử dụng để xác định vị trí của block trước 1 phần tử cùng parent, nếu để dấu (-) thì định vị block trước tất cả các element khác. ???
+- cái after tương tự chỉ là thay after bằng before.
+- template : đại diện cho chức năng của block, mà thuộc tính được gán. ??? 
+- as : là 1 bí dinh đóng vai trò định danh trong phạm vi phần tử cha.
+- cacheable : xác định xem 1 block có thể lưu trong bộ nhớ cacheable, Điều này có thể được sử dụng cho mục đích phát triển và 
+để làm cho các yếu tố cần thiết của trang.
+
++ container 
+- 1 container có thể diễn giải các thành phần con trong view trả về, nó có thể trống hoặc nó có thể chứa các <container> and <block> elements.
+- <container name="div.sidebar.additional" htmlTag="div" htmlClass="sidebar sidebar-additional" after="div.sidebar.main">
+    <container name="sidebar.additional" as="sidebar_additional" label="Sidebar Additional"/>
+</container>
+- name : cx như tk block.
+- label	: 1 cái tên tùy ý hiển thị trên trình duyệt web.
+- before : như tk block thay block thành container.
+- after : như tk block thay block thành container.
+- as : như block.
+- output : ???
+- htmlTag : Thông số đầu ra, nếu được chỉ định đầu ra sẽ được gói vào thẻ html đc chỉ định.
+- htmlId : thông số đầu ra, Nếu được chỉ định, giá trị sẽ được thêm vào phần tử bao bọc.
+ Nếu không có phần tử bao bọc, thuộc tính này không có hiệu lực.
+- htmlClass : như cái tk htmlId.
+- xem các giá trị trong docs. 
+
++ move
+- Đặt khối block hoặc container element như là con của phần tử khác theo thứ tự được chỉ định.
+
+- <move element="name.of.an.element" destination="name.of.destination.element" as="new_alias" 
+after="name.of.element.after" before="name.of.element.before"/>
+
+- <move> được bỏ qua nếu phần tử di chuyển không được xác định.
+- If the (as) attribute is not defined, the current value of the element alias is used. If that is not possible,
+ the value of the (name) attribute is used instead.
+- Trong quá trình tạo bố cục, lệnh <move> được xử lý trước khi xóa (được đặt bằng thuộc tính remove).
+Điều này có nghĩa là nếu bất kỳ phần tử nào được chuyển đến phần tử được lên lịch để loại bỏ, chúng cũng sẽ bị xóa.
+- element : tên của phần tử cần di chuyển.
+- destination : tên của phần tử đi tới.
+- as : Tên bí danh cho thành phần ở vị trí mới.
+- after or before cái này nhìn ví dụ trên là hiểu.
+
++ remove
+- <remove> chỉ được sử dụng khi muốn remove những link tài nguyên tĩnh trong page ở phần <head>. For removing blocks or containers, 
+use the remove attribute for <referenceBlock> and <referenceContainer>(ở trên gần đầu).
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+   <head>
+        <!-- Remove local resources -->
+        <remove src="css/styles-m.css" />
+        <remove src="my-js.js"/>
+        <remove src="Magento_Catalog::js/compare.js" />
+								
+        <!-- Remove external resources -->
+        <remove src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/>
+        <remove src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"/>
+        <remove src="http://fonts.googleapis.com/css?family=Montserrat" /> 
+   </head>
+</page>
+
++ update <update handle="{name_of_handle_to_include}"/>
+The specified handle is “included” and executed recursively.
+
++ argument
+
+Used to pass an argument. Must be always enclosed in <arguments>.
+
+Attribute	Description	Values	Required?
+name	Argument name.	unique	yes
+xsi:type	Argument type.	string|boolean|object|number|null|array	yes
+translate	 	true|false	no
+To pass multiple arguments use the following construction:
+
+<arguments>
+   <argument name="item1" xsi:type="string">Custom string</argument>
+   <argument name="item2" xsi:type="boolean">true</argument>
+   ...
+</arguments>
+To pass an argument that is an array use the following construction:
+
+<argument name="custom_array" xsi:type="array">
+   <item name="array_key_one" xsi:type="string">First Item</item>
+   <item name="array_key_two" xsi:type="string">Second Item</item>
+   ...
+</argument>
+Arguments values set in a layout file can be accessed in templates using the get{ArgumentName}() and has{ArgumentName}() methods. The latter returns a boolean defining whether there’s any value set. {ArgumentName} is obtained from the name attribute the following way: for getting the value of <argument name="some_string"> the method name is getSomeString().
+
+Example: Setting a value of css_class in the [app/code/Magento/Theme/view/frontend/layout/default.xml] layout file:
+
+<arguments>
+    <argument name="css_class" xsi:type="string">header links</argument>
+</arguments>
+Using the value of css_class in [app/code/Magento/Theme/view/frontend/templates/html/title.phtml]:
+
+$cssClass = $this->hasCssClass() ? ' ' . $this->getCssClass() : '';
+
+name là css_class thành CssClass.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
