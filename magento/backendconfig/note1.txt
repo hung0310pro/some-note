@@ -1,0 +1,13 @@
+﻿+ Store : A single website can have multiple stores—all are managed from the same Admin. Each store can have a different main menu, 
+product selection, and appearance.
+ 
++ Store Views : Store views are usually used to present the store in different languages, although they can be used for other purposes, as well.
+Customers use the language chooser in the header to change the store view.
+
++ Simple Product : là để add sản phẩm bt.
++ Virtual Product : là sản phẩm ảo (ví dụ khóa học online, nic game...)
++ Download Product : để tạo ra những sản phẩm có thể download được.
++ Configurable Product : là sản phẩm có 1 mã sku riêng của sp đó, để có thể quản lí đc cái mặt hàng đó, ví dụ có 10 con iphone 6 thì mỗi con
+có 1 mã sku riêng từ đó mình có thể biết mình đã bán con nào và còn lại con nào.
++ Bundle Product : là 1 combo sản phẩm, ví dụ 1 bộ máy tính thì có bàn phím, chuột, màn hình đi kèm. có thể đổi các dụng cụ ở trong đó, nhưng
+bắt buộc phải mua full bộ.

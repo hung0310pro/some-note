@@ -1,5 +1,5 @@
 ﻿+ tạo category
-- Products->category->add subcategory
+- Catalog>category->add subcategory
 - Hiện ra 1 list cái điền tên category, sau đó mình chọn content để upload hay miêu tả nội dùng.
 - Sau đó chọn search engine... nhập cái url key (ví dụ name là Sách thì url key là sach) (cái này có thể hiểu là tìm kiếm)
 - Muốn tạo thêm các menu con của tk Sách thì ấn vào cái folder Sách rồi sau đó ấn add subcategory... là đc
