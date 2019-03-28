@@ -1,0 +1,126 @@
+﻿+ Tổng quan : Mỗi Module đều có 1 file di.xml, Magento sẽ đọc hết tất cả các file di.xml trong hệ thống, sau đó gộp nó lại và áp dụng vs mỗi module tương ứng
+
++ Magento loads the configuration in the following stages:
+- Initial (app/etc/di.xml) (file di ban đầu)
+- Global (<moduleDir>/etc/di.xml)
+- Area-specific (<moduleDir>/etc/<area>/di.xml) (vùng chỉ thị, có thể để trong etc/frontend/di...., ví dụ như cái di.xml cho cái route trong BlogBig)
+
++ Trong quá trình bootstrapping, mỗi điểm nhập ứng dụng sẽ tải các tệp di.xml thích hợp cho vùng được yêu cầu.
+
++ Virtual types : 1 cái Virtual types cho phép thay đổi các arguments  của 1 chỉ thị phụ thuộc vào tiêm(__constuctor) và thay đổi hành vi của 1 class cụ thể.
+điều này cho phép ta có thể tùy chỉnh class mà không cần lo ảnh hưởng tới các lớp khác(ví dụ về cái này thì check và mấy file di của mình nhé, nó là dạng ảo ròi
+nó giúp mình lấy list dữ liệu khi sử dụng ui_component)
+
++ Constructor arguments : 
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Core\Model\Session">
+        <arguments>
+            <argument name="sessionName" xsi:type="string">adminhtml</argument>
+        </arguments>
+    </type>
+</config>
+Bạn cấu hình các arguments hàm tạo lớp(constructor) trong di.xml của bạn trong các arguments. The object manager sẽ tiêm các arguments vào trong các class trong suốt
+quá trình khởi tao, Tên của arguments  được cấu hình trong tệp XML phải tương ứng với tên của tham số trong hàm tạo trong lớp được cấu hình.
+- ví dụ : The following example creates instances of Magento\Core\Model\Session with the class constructor argument $sessionName set to a value of adminhtml:
+
++ Argument types : 
+- object : <argument xsi:type="object">{typeName}</argument>
+           <argument xsi:type="object" shared="{shared}">{typeName}</argument>
+Tạo 1 trường hợp của {typeName} và truyền và đưa nó vào như là 1 argument, you can pass any class name, interface name, or virtual type as typeName.
+
+- string : <argument xsi:type="string">{strValue}</argument>
+           <argument xsi:type="string" translate="true">{strValue}</argument>
+ Magento diễn giải bất kỳ giá trị nào cho nút đối số này dưới dạng một chuỗi.
+
+-boolean : <argument xsi:type="boolean">{boolValue}</argument>
+
+- number : <argument xsi:type="number">{numericValue}</argument>
+ Acceptable values for this type include: integers, floats, or numeric strings.
+
+- init_parameter : <argument xsi:type="init_parameter">{Constant::NAME}</argument>
+ Đây là cái áp dụng cục bộ cho các argument  tương ứng và có sẵn bởi Constant::NAME.
+
+- const : <argument xsi:type="const">{Constant::NAME}</argument>
+ This is the constant value represented by Constant::NAME.
+
+- null : <argument xsi:type="null"/>
+ This indicates a null value.
+
+- array : <argument xsi:type="array">
+                <item name="someKey" xsi:type="<type>">someVal</item>
+          </argument> 
+ Magento xây dựng array với các element tương ứng với các item và chuyển nó làm argument. Mảng có thể chứa vô số các item, và mỗi array item có thể là của bất kỳ loại 
+object nào bao gồm cả mảng là chính nó.
+
+ Khi Magento hợp nhất các tệp cấu hình cho một Phạm Vi nhất định, các argument của array có CÙNG tên sẽ được hợp nhất thành một array mới.
+
+ Khi Magento load a new configuration trong 1 thời gian ngắn, hoặc bởi 1 phạm vi chỉ thị, hoặc thông qua code, sau đó, bất kỳ định nghĩa array nào trong cấu hình 
+ mới sẽ thay thế tải cấu hình thay vì hợp nhất. 
+
+ - Argument Examples :
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Example\Type">
+        <arguments>
+            <!-- Pass simple string -->
+            <argument name="stringParam" xsi:type="string">someStringValue</argument>
+            <!-- Pass instance of Magento\Some\Type -->
+            <argument name="instanceParam" xsi:type="object">Magento\Some\Type</argument>
+            <!-- Pass true -->
+            <argument name="boolParam" xsi:type="boolean">1</argument>
+            <!-- Pass 1 -->
+            <argument name="intParam" xsi:type="number">1</argument>
+            <!-- Pass application init argument, named by constant value -->
+            <argument name="globalInitParam" xsi:type="init_parameter">Magento\Some\Class::SOME_CONSTANT</argument>
+            <!-- Pass constant value -->
+            <argument name="constantParam" xsi:type="const">Magento\Some\Class::SOME_CONSTANT</argument>
+            <!-- Pass null value -->
+            <argument name="optionalParam" xsi:type="null"/>
+            <!-- Pass array -->
+            <argument name="arrayParam" xsi:type="array">
+                <!-- First element is value of constant -->
+                <item name="firstElem" xsi:type="const">Magento\Some\Class::SOME_CONSTANT</item>
+                <!-- Second element is null -->
+                <item name="secondElem" xsi:type="null"/>
+                <!-- Third element is a subarray -->
+                <item name="thirdElem" xsi:type="array">
+                    <!-- Subarray contains scalar value -->
+                    <item name="scalarValue" xsi:type="string">ScalarValue</item>
+                    <!-- and application init argument -->
+                    <item name="globalArgument " xsi:type="init_parameter">Magento\Some\Class::SOME_CONSTANT</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>
+
+- Merging and Arguments 
+  Trong quá trình gộp, các arguments thay thế các arguments khác có cùng tên nếu loại của chúng khác nhau.
+  Nếu KIỂU arguments là giống nhau, thì arguments  mới sẽ thay thế KIỂU arguments  cũ.
+
+type : object thì mới tiêm là 1 nhóm class ???
+type : array thì tiêm là mảng
+Lúc thì tiêm, lúc kp tiêm là gọi tên ???
+quy trình là sao ta ???
+khi gọi tới obj manager thì nó sẽ gọi ra cái tk đối tượng tương ứng và trỏ ra các tk nó kế thừa (rồi sử dụng use, rồi tiêm???)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

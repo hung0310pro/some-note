@@ -27,7 +27,7 @@
 + Tìm 1 module và chỉ ra argument replacement.
 
 - thay thế mang tính cục bộ, tìm đến những chỗ có lớp được khai báo ở type, thay thế argument được báo trong contructor.
-Như hình 15 và 16 thì cái trong hàm contructor có name là giống vs cái name ở argument và type là mảng thì nó sẽ tìm tới cái
+Như hình 15 và 16 thì cái trong hàm contructor có Name là giống vs cái Name ở argument và type là mảng thì nó sẽ tìm tới cái
 như trang 16 và thay thế bằng chuối(tương ứng vs cái item).
 
 + Chỉ ra 1 module có sử dụng Proxy : module-catalog trong file di.xml (thường khai báo ở đây dòng 149).
