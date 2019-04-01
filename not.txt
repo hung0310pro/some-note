@@ -28,6 +28,8 @@ và biến thì là parent::$bientinh;(self,static,Nameclass), riêng vs hàm c�
 - trong interface k tạo biến nhưng có thể cho Hằng.
 - không thể khởi tạo đối tượng tới interface.
 
+yolo
+
 + abstract
 - Không định nghĩa hàm trong lớp,
 - Chỉ sử dung protected và public

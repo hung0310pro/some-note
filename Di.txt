@@ -97,11 +97,7 @@ object nào bao gồm cả mảng là chính nó.
   Trong quá trình gộp, các arguments thay thế các arguments khác có cùng tên nếu loại của chúng khác nhau.
   Nếu KIỂU arguments là giống nhau, thì arguments  mới sẽ thay thế KIỂU arguments  cũ.
 
-type : object thì mới tiêm là 1 nhóm class ???
-type : array thì tiêm là mảng
-Lúc thì tiêm, lúc kp tiêm là gọi tên ???
-quy trình là sao ta ???
-khi gọi tới obj manager thì nó sẽ gọi ra cái tk đối tượng tương ứng và trỏ ra các tk nó kế thừa (rồi sử dụng use, rồi tiêm???)
+
 
 
 
