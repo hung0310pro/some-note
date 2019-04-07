@@ -1,0 +1,70 @@
+﻿Muốn sử dụng flex thì phải đặt cho tk div cha cái
+display:flex
+<div class="container">
+<div class="child1">Child1</div>
+<div class="child2">Child2</div>
+<div class="child3">Child3</div>
+</div>
+
++ nếu để như thế này thì 3 tk con sẽ ở chung 1 hàng.
+.container{
+display:flex;
+}
+
+child1child2child3
+
++ nếu để nt này thì 3 tk này sẽ lại xuống dòng
+
+flex-direction: column | row (mỗi tk 1 hàng, tất cả chung 1 hàng)
+
+.container{
+display:flex;
+flex-direction: column;
+}
+
+child1
+child2
+child3
+
+Nếu dùng cái justify-content:center thì ra giữa ntn 
+.container{
+display:flex;
+flex-direction: row;
+justify-content:center;
+}
+                                                                 child1child2child3
+
+Hoặc
+.container{
+display:flex;
+flex-direction: row;
+justify-content:space-between;.....
+} 
+
+child1                                                                child2                                                                     child3
+
+
+Nếu dùng cái justify-content:center,và tk align-items:center thì nó sẽ ra chính giữa cái div đấy luôn như là hinh1.png 
+.container{
+display:flex;
+flex-direction: row;
+justify-content:center;  
+height:250xp;
+}
+flex-basis,flex-grow,order, cái này đọc ở file flexbox.css nhé
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

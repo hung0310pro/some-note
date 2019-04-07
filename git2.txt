@@ -14,10 +14,12 @@ lên git.
 git reset namefile.
 + git checkout -b namebranch cái này để tạo ra 1 nhánh mới, nếu trùng tên nhánh so vs nhánh cũ sẽ báo lỗi(checkout nt cx
 là mình chuyển sang nhánh mới luôn).
++ git push origin + name branch là up tk branch mới lên github.
 + git branch là để xem mình đang ở nhánh nào.
 + git checkout namebranch là chuyển nhánh.
 + git merge là dùng để add các đoạn code, file code từ nhánh A SANG nhánh B, nếu muốn vậy trc hết phải đang ở nhánh B, sau
 đó gõ git merge A.
 + git branch -D namebrach dùng để xóa nhánh.
-+ git pull là khi 1 ng vừa push lên xong mình (đã git clone rồi) mà muốn tiếp tục theo dõi tại thời điểm đó thì gõ git pull
++ git pull là khi 1 ng vừa push lên xong mình (đã git clone rồi) mà muốn tiếp tục theo dõi tại thời điểm đó thì gõ git pull??? (git pull là khi mình
+merge code từ 1 branch A sang branch Master, thì sau đó mình gõ git pull thì nó sẽ gộp hết cái commit ở branch A sang branch Master luôn)
 
