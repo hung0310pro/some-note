@@ -23,3 +23,20 @@ là mình chuyển sang nhánh mới luôn).
 + git pull là khi 1 ng vừa push lên xong mình (đã git clone rồi) mà muốn tiếp tục theo dõi tại thời điểm đó thì gõ git pull??? (git pull là khi mình
 merge code từ 1 branch A sang branch Master, thì sau đó mình gõ git pull thì nó sẽ gộp hết cái commit ở branch A sang branch Master luôn)
 
+https://xuanthulab.net/lenh-git-merge-va-rebase-gop-va-viet-lai-lich-su-commit.html
+
+- git restore (git restore . or + tên file) giống git checkout: phục hồi 1 file đã lỡ bị xoá hay sửa nhầm
+- git diff --staged: so sánh cái thay đổi hiện tại(chưa đc commit) vs commit cuối trc đó(khi mà tk này có nhiều commit)
+- git log --oneline: tương tự git log nhưng ngắn gọn hơn.
+- git checkout + id_commit --.(or tên file): thì sẽ đưa các file về đúng commit đó
+- git commit --amend -m "nội dung commit": Khi đang có 1 commit, tuy nhiên lại sửa 1 file khác, mà muốn add luôn file đó vào commit cũ mà k muốn tạo ra 1 commit mới(bị thành 2 commit) nữa thì dùng tk này, nó sẽ ghi đè vào commit mới nhất.
+- git merge: Giả sử có 1 branch Master, và nó có 3 commit, từ Master tạo bracnh B (khi đó branch B sẽ chứa 3 commit của branch Master và có điểm chung là cùng trỏ vào commit 3 là commit cuối của master), khi B lại tạo 2 commit mới, xong mà muốn gộp 2 commit mới của B vào master, thì phải checkout sang Master rồi dùng "git merge B" thì khi đó Master sẽ có 5 commit như branch B và 2 branch này cùng trỏ vào commit 5. (trước khi merge phải check xem Master có đang sửa đổi gì k? hoặc master có đang 1 commit nào mới mà tk B không có k(nếu có thì có thể bị conflig)).
+- git log --online --graph: check xem các commit và các commit đc merge vào bởi các commit rẽ nhánh (ví dụ như branch B).
+
+
+* So sánh git merge và git rebase 
+	- Giả sử Branch A có 3 commit là 1,2,3
+	- Branch B đc tạo từ base trên branch A và tạo thêm 2 commit nữa là 4,5(khi ấy commit của B là 1,2,3,4,5)
+	- Tiếp đến lại quay về A tạo thêm 2 commit nữa là 6,7 khi đó commit của A là 1,2,3,6,7.
+	 + Nếu dùng git merger từ B vào A thì sẽ đc như sau : 1,2,3,4,5,6,7,8. Trong đó 8 là commit xử lí nếu xảy ra sung đột giữa thằng 3 là cm chung giữa 2 nhanh, 5 là cm cuối của B, 7 là cm cuối của A. Ngoài ra nó sẽ sắp xếp commit theo thứ tự thời gian khi tạo commit từ 2 nhánh(có thể là 1,2,3,4,6',5,7,8) tuỳ thuộc vào độ sớm, hay muộn khi tạo cm 4,5 từ B và 6,7 từ A.
+     + Nếu dùng git rebase thì nó sẽ thành 1,2,3,4,5,6,7 luôn, tức là 3 cm cở sở (1,2,3) rồi đến 2 cm của B(4,5), rồi sau cùng 2 cm mới của A là 6',7. Khác merge là không sắp xếp theo thời gian nữa. Khác nữa là 6' tổng hợp conflig đến từ điểm giao giữa last cm bới của B là 5 và first cm mới của A là 6 => 6' 	 
